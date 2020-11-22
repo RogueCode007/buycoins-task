@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://use.fontawesome.com/6b69079b20.js"></script>
+  <link rel="stylesheet" href="/app.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body id="body">
+  <nav>
+    <div class="main-nav">
+      <div class="left-al">
+        <i class="fa fa-bars" id="bar" aria-hidden="true"></i>
+        <i class="fa fa-github" aria-hidden="true"></i>
+        <div class="menu">
+          <ul>
+            <li>
+              <div class="input">
+                <input type="text" placeholder="Search or jump to..">
+                <div>/</div>
+              </div>
+            </li>
+            <li>
+              <a href="#">Pulls</a>
+            </li>
+            <li>
+              <a href="#">Issues</a>
+            </li>
+            <li>
+              <a href="#">Marketplace</a>
+            </li>
+            <li>
+              <a href="#">Explore</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="right-al">
+        <i class="fa fa-bell-o" aria-hidden="true"></i>
+        <div class="dropdown">
+          <div id="icons1">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+          </div>
+          <div class="dropdown-content hide" id="content-1">
+            <a href="#">New repository</a>
+            <a href="#">Import repository</a>
+            <a href="#">New gist</a>
+            <a href="#">New organization</a>
+            <a href="#">New project</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <div id="icons2">
+            <a href="https://placeholder.com"><img src="https://via.placeholder.com/15" alt=""></a>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+          </div>
+          <div class="dropdown-content hide" id="content-2">
+            <div class="info">
+              <p>Signed in as:</p>
+              <h4 class="username">RogueCode007</h4>
+            </div>
+            <div class="status">
+              <i class="fa fa-smile-o" ></i>
+              <p>Set Status</p>
+            </div>
+            <div class="links1">
+              <a href="#">Your profile</a>
+              <a href="#">Your repositories</a>
+              <a href="#">Your organizations</a>
+              <a href="#">Your projects</a>
+              <a href="#">Your stars</a>
+              <a href="#">Your gists</a>
+            </div>
+            <div class="links2">
+              <a href="#">Upgrade</a>
+              <a href="#">Feature Preview</a>
+              <a href="#">Help</a>
+              <a href="#">Settings</a>
+              <a href="#">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="mobile hide" id="mobile-nav">
+      <ul>
+        <li>
+          <div class="input-mobile">
+            <input type="text" placeholder="Search or jump to..">
+            <div>/</div>
+          </div>
+        </li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Pull requests</a></li>
+        <li><a href="#">Issues</a></li>
+        <li><a href="#">Marketplace</a></li>
+        <li><a href="#">Explore</a></li>
+        <li class="user"></li>
+        <li><i class="fa fa-sign-out" aria-hidden="true"></i><b>Sign out</b></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="section">
+      <div class="profile">
+        <a href="https://placeholder.com"><img src="https://via.placeholder.com/100" alt=""></a>
+        <div class="name">
+          <h2 class="owner">Obiwan Pelosi</h2>
+          <h5 class="username">RogueCode007</h5>
+        </div>
+      </div>
+      <div class="status">
+        <i class="fa fa-smile-o" aria-hidden="true"></i>
+        <p>Set Status</p>
+      </div>
+      <p id="role">Front-end developer</p>
+      <button class="edit">Edit profile</button>
+    </div>
+    <div class="right-sect">
+      <div class="options">
+        <ul>
+          <li><a href="#">Overview</a></li>
+          <li id="repo-list"><a href="#">Repositiories <span id="repototal">14</span></a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Packages</a></li>
+        </ul>
+      </div>
+      <div class="action">
+        <div class="search"><input type="text" placeholder="Find a repository..."></div>
+        <div class="buttons">
+          <div>
+            <button>
+              Type: <span>All
+                <i class="fa fa-caret-down" aria-hidden="true"></i></span> 
+            </button>
+            <button>
+              Language: <span>All <i class="fa fa-caret-down" aria-hidden="true"></i> </span>
+              
+            </button>
+          </div>
+          <button>
+            <span><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
+            New
+          </button>
+        </div>
+      </div>
+      <div class="repositories">
+        <div class="repo">
+          <div>
+            <a href="#" class="repo-name">XXX</a>
+            <p class="description">A description</p>
+            <div class="repofooter">
+              <div class="langcolor"><span class="lang"></span></div>
+              <p class="updated">Updated on </p>
+            </div>
+          </div>
+          <button>
+            <span><i class="fa fa-star-o" aria-hidden="true"></i></span>
+            Star
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+
+<script src="/app.js"></script>
+</body>
+</html>
