@@ -35,7 +35,7 @@ async function grabGitHubData(){
   try {
     const response = await fetch('https://api.github.com/graphql', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer  d52ffa2fa8135d9b95a2fa30fbb7d7e845fae610'},
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer  c2b0d2f05faea6849a45facb94974df5e992cb64'},
       body: JSON.stringify({ query: query }),
     })
     const body = await response.json()
