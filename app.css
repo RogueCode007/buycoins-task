@@ -334,6 +334,7 @@ div.langcolor{
 }
 .fa-star-o{
   font-weight: 400;
+  margin-right: 5px;
 }
 .repo button{
   padding: 6px 15px;
@@ -354,37 +355,10 @@ div.langcolor{
 span.lang{
   font-size: 0.9em
 }
-@media only screen and (max-width: 414px){
-  .options li{
-    margin: 0 10px 0 0;
-  }
-  p.description{
-    font-size: 0.7em
-  }
-  div.repofooter{
-    font-size: 0.7em
-  }
-  .options a{
-    font-size: 0.8em;
-  }
-}
-@media only screen and (max-width: 375px){
-  .options ul{
-    padding: 0
-  }
-  .options li{
-    margin: 0 10px 0 0;
-  }
-  p.description{
-    font-size: 0.7em
-  }
-  div.repofooter{
-    font-size: 0.7em
-  }
-  .options a{
-    font-size: 0.8em;
-  }
-}
+
+/*===================================================*/
+/* ====================Media Queries================== */
+/* ===================================================== */
 @media only screen and (min-width: 544px){
   .list-icon{
     display: inline;
@@ -598,3 +572,26 @@ span.lang{
     text-decoration: underline;
   }
 }
+
+@media only screen and (max-width: 510px){
+  .options ul{
+    padding: 0
+  }
+}
+
+
+@media only screen and (max-width: 414px){
+  .options li{
+    margin: 0 10px 0 0;
+  }
+  p.description{
+    font-size: 0.7em
+  }
+  div.repofooter{
+    font-size: 0.7em
+  }
+  .options a{
+    font-size: 0.8em;
+  }
+}
+
