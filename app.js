@@ -1,5 +1,3 @@
-
-
 //GraphQl query
 const query = `query{
   user(login: "RogueCode007") {
@@ -36,7 +34,7 @@ async function grabGitHubData(){
   try {
     const response = await fetch('https://api.github.com/graphql', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer   token'},
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer   ${atob('OWY4ZGU0ZjU0ZGIyOWY5NjZjY2QwODhmZjY5YWM3MzhmZWNkNDNiOQ==')}`},
       body: JSON.stringify({ query: query }),
     })
     const body = await response.json()
@@ -108,7 +106,7 @@ async function grabGitHubData(){
     }
   }
   catch(err){
-    alert("Something went wrong :( " + err)
+    console.log(err);
   }
 }
 
