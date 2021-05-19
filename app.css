@@ -8,6 +8,7 @@ h1{
   color: rgb(117, 109, 109)
 }
 
+/* NAVIGATION STYLING */
 nav{
   background-color: #24292e;
   padding: 15px 20px;
@@ -114,6 +115,7 @@ input{
   margin: 0;
   padding: 0;
   outline: 0;
+  width: 100%
   
 }
 input::placeholder{
@@ -138,18 +140,46 @@ li.user div{
 .dropdown{
   display: none;
 }
+
+
 .container{
   padding: 5px 15px
 }
+
+
+/* PROFILE SECTION */
 .profile{
   display: flex;
   width: 100%;
   box-sizing: border-box;
 }
-#userAvatar{
+.icon-container {
   width: 100px;
   height: 100px;
+  position: relative;
+}
+#userAvatar{
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
+  
+}
+.status-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 5px 5px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  border: 1px solid #d1d5da;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+.smile{
+  font-size: 12px
 }
 .name{
   margin-left: 20px;
@@ -195,6 +225,9 @@ li.user div{
 .twitter-link{
   display: none;
 }
+
+
+/* REPOSITORY SECTION HEADER */
 .options ul{
   list-style-type: none;
   padding: 10px 10px 0 10px;
@@ -286,6 +319,8 @@ button .fa{
 button .fa-file-text-o{
   color: white
 }
+
+/* REPOSTIORIES STYLING */
 .repositories{
   margin-top: 20px
 }
@@ -328,11 +363,20 @@ div.langcolor{
   margin-right: 5px;
   display: inline-block
 }
+span.star, span.fork{
+  margin: 0 8px;
+}
+
+.star .fa, .fork .fa{
+  color: #24292E;
+  margin-right: 3px
+}
+
 .updated{
   font-size: 0.8em;
   margin : 1px 0 0 0
 }
-.fa-star-o{
+button .fa-star-o{
   font-weight: 400;
   margin-right: 5px;
 }
@@ -356,6 +400,54 @@ span.lang{
   font-size: 0.9em
 }
 
+/* LOADING MODAL STYLING */
+.modal{
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0, 0.1);
+}
+.loading-modal{
+  min-height: 350px;
+  
+}
+
+.loader{
+  position: relative;
+  top: 150px;
+  text-align: center
+}
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 /*===================================================*/
 /* ====================Media Queries================== */
 /* ===================================================== */
@@ -377,10 +469,10 @@ span.lang{
     display: none;
   }
   .main-nav{
-    padding: 5px 15px
+    padding: 5px 20px
   }
   .left-al{
-    width: 50%;
+    width: 45%;
   }
   .menu{
     display: block;
@@ -516,11 +608,38 @@ span.lang{
     display: flex;
     justify-content: space-between;
   }
-  #userAvatar{
+  .icon-container{
     width: 80%;
     height: 70%;
     margin: 0 auto;
   }
+  #userAvatar{
+    width: 100%;
+    height: 100%;
+  }
+  .status-circle{
+    width: 15px;
+    height: 15px;
+    bottom: 20px;
+    right: 20px
+  }
+  .smile{
+    font-size: 16px;
+  }
+  #status{
+    display: none;
+    font-size: 0.7em
+  }
+  .status-circle:hover{
+    width: 80px;
+    border-radius: 20px;
+    
+  }
+  .status-circle:hover #status{
+    display: inline;
+    margin-left: 5px
+  }
+  
   .section{
     width: 23%;
     margin-top: 40px;

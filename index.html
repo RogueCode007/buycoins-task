@@ -106,17 +106,26 @@
       </ul>
     </div>
   </nav>
+
   <div class="container">
+
+    <!-- Profile Section -->
     <div class="section">
       <div class="profile">
-        <img src="" alt="userAvatar" id="userAvatar">
+        <div class='icon-container'>
+          <img src="" alt="userAvatar" id="userAvatar">
+          <div class='status-circle'>
+            <i class="fa fa-smile-o smile" aria-hidden="true"></i><span id='status'>Set Status</span>
+          </div>
+        </div>
+        
         <div class="name">
           <h2 class="owner"></h2>
           <h5 class="username"></h5>
         </div>
       </div>
       <div class="status">
-        <i class="fa fa-smile-o" aria-hidden="true"></i>
+        <i class="fa fa-smile-o " aria-hidden="true"></i>
         <p>Set Status</p>
       </div>
       <p id="role"></p>
@@ -126,6 +135,8 @@
         <a href="https://twitter.com/bioye7">@bioye7</a>
       </div>
     </div>
+
+    <!-- Repositiories section -->
     <div class="right-sect">
       <div class="options">
         <ul>
@@ -154,11 +165,19 @@
           </button>
         </div>
       </div>
-      <div class="repositories">
-       
+      <!-- Each repository will be appended to the div below -->
+      <div class="repositories"></div>
+    </div>
+
+
+    <!-- Loading Modal -->
+    <div class="modal" id="load">
+      <div class="loading-modal w-full">
+          <div class="loader">
+            <div class="lds-dual-ring"></div>
+          </div>
       </div>
     </div>
-    
   </div>
 
 <script src="app.js"></script>

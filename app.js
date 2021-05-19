@@ -7,7 +7,7 @@ const query = `query{
     bio
   },
   repositoryOwner(login: "RogueCode007") {
-    repositories(first: 20) {
+    repositories(last: 20) {
       edges {
         node {
           name
@@ -25,6 +25,8 @@ const query = `query{
   }
 }`
 
+let loading = true
+
 //Call this function onload
 grabGitHubData()
 
@@ -39,6 +41,8 @@ async function grabGitHubData(){
     })
     const body = await response.json()
     let data =   body.data;
+    
+
     //Fill data in where necessary
     document.getElementsByClassName('owner')[0].innerText = data.user.name
     let username = document.getElementsByClassName('username')
@@ -51,34 +55,66 @@ async function grabGitHubData(){
     document.getElementById('role').innerText = data.user.bio;
     document.getElementById('repototal').innerText = data.repositoryOwner.repositories.edges.length;
     let edges = data.repositoryOwner.repositories.edges;
+
+    // Iterate through edges array to grab individual repository information
     for(let i = edges.length-1; i >= 0; i--){
+
+      // Create the following elements for each repository and set class attributes for styling 
       let div1 = document.createElement('div');
       div1.setAttribute('class', 'repo');
+
       let div2 = document.createElement('div');
       div2.setAttribute('class', 'wrapper')
+
       let link = document.createElement('a')
       link.setAttribute('class', 'repo-name');
+
       let p1 = document.createElement('p')
       p1.setAttribute('class', 'description');
+
       let div3 = document.createElement('div');
       div3.setAttribute('class', 'repofooter');
+
       let div4 = document.createElement('div');
       div4.setAttribute('class', 'langcolor');
+
       let span1 = document.createElement('span');
       span1.setAttribute('class', 'color')
+
       let span2 = document.createElement('span');
       span2.setAttribute('class', 'lang');
+      
+      let span4 = document.createElement('span');
+      span4.setAttribute('class', 'star');
+      let icon1 = document.createElement('i')
+      icon1.setAttribute('class', 'fa');
+      icon1.classList.add('fa-star-o');
+      span4.appendChild(icon1);
+      let text1 = document.createTextNode(edges[i].node.stargazerCount)
+      span4.appendChild(text1)
+
+      let span5 = document.createElement('span');
+      span5.setAttribute('class', 'fork');
+      let icon2 = document.createElement('i')
+      icon2.setAttribute('class', 'fa');
+      icon2.classList.add('fa-code-fork');
+      span5.appendChild(icon2);
+      let text2 = document.createTextNode(edges[i].node.forkCount)
+      span5.appendChild(text2)
+
       let p2 = document.createElement('p');
       p2.setAttribute('class', 'updated');
+
       let button = document.createElement('button');
       let span3 = document.createElement('span');
-      let icon = document.createElement('i')
-      icon.setAttribute('class', 'fa');
-      icon.classList.add('fa-star-o');
-      span3.appendChild(icon);
+      let icon3 = document.createElement('i')
+      icon3.setAttribute('class', 'fa');
+      icon3.classList.add('fa-star-o');
+      span3.appendChild(icon3);
       button.appendChild(span3);
       let text = document.createTextNode('Star')
       button.appendChild(text);
+
       let time = new Date(Date.parse(data.repositoryOwner.repositories.edges[i].node.updatedAt));
       let month = time.toLocaleString("en-US", {month: 'short'});
       let day = time.toLocaleString('en-US', {day: "numeric"});
@@ -88,11 +124,15 @@ async function grabGitHubData(){
         span2.innerText = edges[i].node.primaryLanguage.name;
         div4.appendChild(span1);
         div4.appendChild(span2);
-        div3.appendChild(div4);
       }else{
         span2.innerText = '';
       } 
-      
+
+      // Append the created elements
+      div4.appendChild(span4);
+      div4.appendChild(span5);
+      div3.appendChild(div4);
+
       div3.appendChild(p2);
       p1.innerText = edges[i].node.description;
       link.innerText = edges[i].node.name;
@@ -102,21 +142,16 @@ async function grabGitHubData(){
       div1.appendChild(div2);
       div1.appendChild(button);
       document.getElementsByClassName('repositories')[0].appendChild(div1)
+
+      // End Loading
+      loading = false 
+      document.getElementById('load').style.display = 'none'
     }
   }
   catch(err){
     console.log(err);
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -127,41 +162,25 @@ let icons1 = document.getElementById('icons1');
 let dropdown1 = document.getElementById('content-1')
 let icons2 = document.getElementById('icons2');
 let dropdown2 = document.getElementById('content-2')
-let toggleMenu = function(block){
-  if(block.classList.contains('hide')){
-    block.classList.remove('hide');
-    block.classList.add('visible');
+
+
+function toggleMenu (param){
+  if(param.classList.contains('hide')){
+    param.classList.remove('hide');
+    param.classList.add('visible');
   }else{
-    block.classList.remove('visible') ;
-    block.classList.add('hide');
+    param.classList.remove('visible') ;
+    param.classList.add('hide');
   }
 }; 
 
 bar.addEventListener('click', function(){
-  if(mobileNav.classList.contains('hide')){
-    mobileNav.classList.remove('hide');
-    mobileNav.classList.add('visible');
-  }else{
-    mobileNav.classList.remove('visible') ;
-    mobileNav.classList.add('hide');
-  }
+  toggleMenu(mobileNav)
 });
 icons1.addEventListener('click', function(){
-  if(dropdown1.classList.contains('hide')){
-    dropdown1.classList.remove('hide');
-    dropdown1.classList.add('visible');
-  }else{
-    dropdown1.classList.remove('visible') ;
-    dropdown1.classList.add('hide');
-  }
+  toggleMenu(dropdown1)
 });
 icons2.addEventListener('click', function(){
-  if(dropdown2.classList.contains('hide')){
-    dropdown2.classList.remove('hide');
-    dropdown2.classList.add('visible');
-  }else{
-    dropdown2.classList.remove('visible') ;
-    dropdown2.classList.add('hide');
-  }
+  toggleMenu(dropdown2)
 })
 
