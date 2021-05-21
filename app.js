@@ -42,7 +42,6 @@ async function grabGitHubData(){
     const body = await response.json()
     let data =   body.data;
     
-
     //Fill data in where necessary
     document.getElementsByClassName('owner')[0].innerText = data.user.name
     let username = document.getElementsByClassName('username')

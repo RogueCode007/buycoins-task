@@ -181,6 +181,19 @@ li.user div{
 .smile{
   font-size: 12px
 }
+#status{
+  display: none;
+  font-size: 0.7em
+}
+.status-circle:hover{
+  width: 80px;
+  border-radius: 20px;
+  
+}
+.status-circle:hover #status{
+  display: inline;
+  margin-left: 5px
+}
 .name{
   margin-left: 20px;
   margin-top: 15px;
@@ -332,7 +345,7 @@ button .fa-file-text-o{
   padding: 20px 0
 }
 .wrapper{
-  width: 50%;
+  width: 60%;
   color: #586069
 }
 .repo-name{
@@ -626,19 +639,7 @@ span.lang{
   .smile{
     font-size: 16px;
   }
-  #status{
-    display: none;
-    font-size: 0.7em
-  }
-  .status-circle:hover{
-    width: 80px;
-    border-radius: 20px;
-    
-  }
-  .status-circle:hover #status{
-    display: inline;
-    margin-left: 5px
-  }
+  
   
   .section{
     width: 23%;
